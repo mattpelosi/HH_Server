@@ -10,7 +10,8 @@ const ObjectId = mongodb.ObjectId;
 module.exports = {
   colorScraper: colorScraper,
   insert: insert,
-  read: read
+  read: read,
+  returnArray: returnArray
 };
 
 const colorNames = [
@@ -73,4 +74,8 @@ function read() {
     .find()
     .next()
     .then(result => result);
+}
+
+function returnArray(){
+  return colorNames
 }

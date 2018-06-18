@@ -5,3 +5,4 @@ module.exports = router
 
 router.get("/scrape-colors", colorController.colorScraper);
 router.get("/colors", colorController.read);
+router.get("/return-array", colorController.returnArray);
