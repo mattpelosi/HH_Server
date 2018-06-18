@@ -12,7 +12,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://hh-interview-challenge-mp.herokuapp.com");
-  
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("withCredentials", true);
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
