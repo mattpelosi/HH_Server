@@ -44,9 +44,4 @@ function insert(req, res) {
 
 function returnArray(req, res) {
       res.status(200).json(colorService.returnArray());
-    
-    // .catch(err => {
-    //   console.log(err);
-    //   res.status(500).send(err);
-    // });
 }
