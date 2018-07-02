@@ -5,8 +5,9 @@ const routes = require("./routes");
 const mongo = require("./mongodb");
 const dotenv = require("dotenv");
 
-
 dotenv.config({path:`/sf.code/hh_server_clone/Helpful_Human_Interview_Challenge/server/.env`});
+
+let port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
@@ -26,7 +27,7 @@ app.use(routes);
 
 mongo
   .connect(process.env.MONGODB_URL)
-  .then(app.listen(8080))
+  .then(app.listen(port))
   .catch(err => {
     console.error(err);
     process.exit(1);
