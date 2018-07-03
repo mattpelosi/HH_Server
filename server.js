@@ -5,7 +5,7 @@ const routes = require("./routes");
 const mongo = require("./mongodb");
 const dotenv = require("dotenv");
 
-dotenv.config({path:`/sf.code/hh_server_clone/server/.env`}); ///sf.code/hh_server_clone/server/.env
+dotenv.config({path:`/sf.code/hh_server_clone/server/.env`});
 
 let port = process.env.PORT || 5000;
 
