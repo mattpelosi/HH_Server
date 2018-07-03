@@ -1,17 +1,14 @@
-const request = require("request");
-const cheerio = require("cheerio");
+
 const Nightmare = require("nightmare");
 // const nightmare = Nightmare({ show: true });
 const nightmare = Nightmare();
 const mongodb = require("./mongodb");
 const conn = mongodb.connection;
-const ObjectId = mongodb.ObjectId;
 
 module.exports = {
   colorScraper: colorScraper,
   insert: insert,
   read: read,
-  returnArray: returnArray
 };
 
 const colorNames = [
@@ -33,11 +30,15 @@ function colorScraper() {
       .evaluate(function(colorNames) {
         //--------------- Select and Store ----------------------
         return colorNames.reduce(function(colorGroup, color) {
+
           document.getElementById("entercolorDIV").children[0].value = color;
           document.getElementById("entercolorDIV").children[1].click();
+
           const colorTable = document.querySelector("#lumtopcontainer tbody")
             .children;
+
           colorArr = Array.from(colorTable);
+
           //-------------- Reduce Color Table to object  ----------------
           const colorObj = colorArr.reduce(function(list, shade) {
             if (shade.firstChild.innerText !== "") {
@@ -74,8 +75,4 @@ function read() {
     .find()
     .next()
     .then(result => result);
-}
-
-function returnArray(){
-  return colorNames
 }

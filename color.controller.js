@@ -3,7 +3,7 @@ const colorService = require("./color.service");
 module.exports = {
   colorScraper: colorScraper,
   read: read,
-  returnArray: returnArray
+  insert: insert
 };
 
 function colorScraper(req, res) {
@@ -40,8 +40,4 @@ function insert(req, res) {
       console.log(err);
       res.status(500).send(err);
     });
-}
-
-function returnArray(req, res) {
-      res.status(200).json(colorService.returnArray());
 }
