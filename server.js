@@ -34,3 +34,4 @@ mongo
   });
 
 console.log(`server listening on port ${port}`);
+console.log(process.env.MONGODB_URL);
