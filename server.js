@@ -5,14 +5,14 @@ const routes = require("./routes");
 const mongo = require("./mongodb");
 const dotenv = require("dotenv");
 
-dotenv.config({path:`/sf.code/hh_server_clone/Helpful_Human_Interview_Challenge/server/.env`});
+dotenv.config({path:`/sf.code/hh_server_clone/server/.env`});
 
 let port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://hh-interview-challenge-mp.herokuapp.com");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3001"); //"https://hh-interview-challenge-mp.herokuapp.com"
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("withCredentials", true);
   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
@@ -33,4 +33,4 @@ mongo
     process.exit(1);
   });
 
-console.log("server listening on port 8080");
+console.log(`server listening on port ${port}`);
